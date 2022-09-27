@@ -35,3 +35,13 @@ html{
     text-align: center;
     margin-bottom: 1rem;
 }
+
+input{
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+    width: 80%;
+}
+.btn{
+    border: none;
+}
