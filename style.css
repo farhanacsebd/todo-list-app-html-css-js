@@ -17,4 +17,15 @@ html{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 1rem;
+}
+
+.card{
+    background-color: #222;
+    color: white;
+    padding: 1rem;
+    min-height: 80vh;
+    width: 50%;
+    overflow: scroll;
+    border-radius: 0.6rem;
 }
