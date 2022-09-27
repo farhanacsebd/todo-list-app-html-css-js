@@ -44,4 +44,15 @@ input{
 }
 .btn{
     border: none;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+    background-color: orange;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
 }
