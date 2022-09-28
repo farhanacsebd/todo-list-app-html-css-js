@@ -3,7 +3,7 @@ const container = document.querySelector('.container');
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('#inputTodo');
 const todoAddButton = document.querySelector('#addTodoButton');
-const todoAddLists = document.querySelector('#lists');
+const todoLists = document.querySelector('#lists');
 
 // createTodo
 const createTodo = (todoId,todoValue) =>{
@@ -13,6 +13,7 @@ const createTodo = (todoId,todoValue) =>{
      <span>${todoValue}</span>
      <span><button class="btn" id="deleteButton"> <i class="fa fa-trash"> </i> </button></span>
      `
+     todoLists.appendChild(todoElement);
 }
 
 
