@@ -29,7 +29,24 @@ const createTodo = (todoId,todoValue) =>{
      <span><button class="btn" id="deleteButton"> <i class="fa fa-trash"> </i> </button></span>
      `
      todoLists.appendChild(todoElement);
+
+     const deleteButton = todoElement.querySelector('#deleteButton');
+     deleteButton.addEventListener('click', deleteTodo);
 }
+
+
+// delete todo
+const deleteTodo = (event) => {
+    const selectedTodo = event.target.parentElement.parentElement.parentElement;
+    todoLists.removeChild(selectedTodo);
+    showMessage('todo is deleted', 'danger');
+
+    
+    let todos = getTodosFromLocalStorage();
+    todos = todos.filter((todo) =>  todo.todoId != selectedTodo.id);
+    localStorage.setItem("mytodos",JSON.stringify(todos));
+
+};
 
 
 // addTodo
