@@ -5,3 +5,9 @@ const todoInput = document.querySelector('#inputTodo');
 const todoAddButton = document.querySelector('#addTodoButton');
 
 
+// addTodo
+const addTodo = (event) =>{
+    event.preventDefault();
+    console.log(todoInput.value);
+}
+
