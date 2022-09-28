@@ -3,12 +3,28 @@ const container = document.querySelector('.container');
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('#inputTodo');
 const todoAddButton = document.querySelector('#addTodoButton');
+const todoAddLists = document.querySelector('#lists');
+
+// createTodo
+const createTodo = (todoId,todoValue) =>{
+     const todoElement = document.createElement('li');
+     todoElement.id = todoId;
+     todoElement.innerHTML =`
+     <span>${todoValue}</span>
+     <span><button class="btn" id="deleteButton"> <i class="fa fa-trash"> </i> </button></span>
+     `
+}
 
 
 // addTodo
 const addTodo = (event) =>{
     event.preventDefault();
-    console.log(todoInput.value);
+    const todoValue = todoInput.value;
+
+
+    // unique id 
+    const todoId = Date.now().toString();
+    createTodo(todoId,todoValue)
 }
 
 
