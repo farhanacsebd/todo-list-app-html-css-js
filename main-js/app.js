@@ -11,3 +11,6 @@ const addTodo = (event) =>{
     console.log(todoInput.value);
 }
 
+
+// adding listeners
+todoForm.addEventListener("submit",addTodo);
