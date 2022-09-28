@@ -46,7 +46,8 @@ const addTodo = (event) =>{
 
     const todos = localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
     todos.push({todoId,todoValue});
-     
+    localStorage.setItem("mytodos",JSON,Stringify(todos))
+    
 }
 
 
