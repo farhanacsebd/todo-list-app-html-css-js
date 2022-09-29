@@ -12,7 +12,7 @@ html{
 }
 
 .container{
-    background-color: #333;
+    background-image: linear-gradient(to right top, #f63f8f, #ff5b71, #ff8056, #ffa743, #ffcd41, #ebdf4d, #d4f063, #bbff7f, #8bfea0, #5afac0, #27f3dc, #14eaf0);
     display: flex;
     justify-content: center;
     align-items: center;
