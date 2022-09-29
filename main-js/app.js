@@ -29,17 +29,29 @@ const createTodo = (todoId,todoValue) =>{
      <span><button class="btn" id="deleteButton"> <i class="fa fa-trash"> </i> </button></span>
      `
      todoLists.appendChild(todoElement);
+
+     const deleteButton = todoElement.querySelector('#deleteButton');
+     deleteButton.addEventListener('click', deleteTodo);
 }
 
 
+// delete todo
+const deleteTodo = (event) => {
+    const selectedTodo = event.target.parentElement.parentElement.parentElement;
+    todoLists.removeChild(selectedTodo);
+    showMessage('todo is deleted', 'danger');
+
+    
+    let todos = getTodosFromLocalStorage();
+    todos = todos.filter((todo) =>  todo.todoId != selectedTodo.id);
+    localStorage.setItem("mytodos",JSON.stringify(todos));
+
+};
 
 // getTodosFromLocalStorage
-
 const getTodosFromLocalStorage = ()=>{
-   return localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
-}
-
-
+    return localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
+ }
 
 // addTodo
 const addTodo = (event) =>{
@@ -52,15 +64,34 @@ const addTodo = (event) =>{
     createTodo(todoId,todoValue);
     showMessage("todo is added","success");
 
-    // add todo to localsotorage
-    const todos = getTodosFromLocalStorage()
+
+    // add todo to localStorage
+    const todos = getTodosFromLocalStorage();
     todos.push({todoId,todoValue});
     localStorage.setItem("mytodos",JSON.stringify(todos));
-
-
     todoInput.value = "";
 }
 
 
 // adding listeners
 todoForm.addEventListener("submit",addTodo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const getTodosFromLocalStorage = ()=>{
+    return localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
+ } */
