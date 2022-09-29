@@ -72,9 +72,17 @@ const addTodo = (event) =>{
     todoInput.value = "";
 }
 
+// loadTodos
+
+const loadTodos =()=>{
+    const todos = getTodosFromLocalStorage();
+    todos.map((todo)=>createTodo(todo.todoId,todo.todoValue))
+}
+
 
 // adding listeners
 todoForm.addEventListener("submit",addTodo);
+window.addEventListener("DOMContentLoaded",loadTodos);
 
 
 
