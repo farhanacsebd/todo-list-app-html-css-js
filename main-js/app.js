@@ -29,24 +29,7 @@ const createTodo = (todoId,todoValue) =>{
      <span><button class="btn" id="deleteButton"> <i class="fa fa-trash"> </i> </button></span>
      `
      todoLists.appendChild(todoElement);
-
-     const deleteButton = todoElement.querySelector('#deleteButton');
-     deleteButton.addEventListener('click', deleteTodo);
 }
-
-
-// delete todo
-const deleteTodo = (event) => {
-    const selectedTodo = event.target.parentElement.parentElement.parentElement;
-    todoLists.removeChild(selectedTodo);
-    showMessage('todo is deleted', 'danger');
-
-    
-    let todos = getTodosFromLocalStorage();
-    todos = todos.filter((todo) =>  todo.todoId != selectedTodo.id);
-    localStorage.setItem("mytodos",JSON.stringify(todos));
-
-};
 
 
 // addTodo
@@ -59,13 +42,6 @@ const addTodo = (event) =>{
     const todoId = Date.now().toString();
     createTodo(todoId,todoValue);
     showMessage("todo is added","success");
-
-
-    // add todo to localStorage
-    const todos = localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
-    todos.push({todoId,todoValue});
-    localStorage.setItem("mytodos",JSON.stringify(todos));
-    todoInput.value = "";
 }
 
 
