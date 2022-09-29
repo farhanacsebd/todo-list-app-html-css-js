@@ -32,6 +32,15 @@ const createTodo = (todoId,todoValue) =>{
 }
 
 
+
+// getTodosFromLocalStorage
+
+const getTodosFromLocalStorage = ()=>{
+   return localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
+}
+
+
+
 // addTodo
 const addTodo = (event) =>{
     event.preventDefault();
@@ -44,7 +53,7 @@ const addTodo = (event) =>{
     showMessage("todo is added","success");
 
     // add todo to localsotorage
-    const todos = localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
+    const todos = getTodosFromLocalStorage()
     todos.push({todoId,todoValue});
     localStorage.setItem("mytodos",JSON.stringify(todos));
 
