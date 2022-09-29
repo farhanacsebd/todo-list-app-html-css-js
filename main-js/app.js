@@ -42,6 +42,8 @@ const addTodo = (event) =>{
     const todoId = Date.now().toString();
     createTodo(todoId,todoValue);
     showMessage("todo is added","success");
+
+    const todos = localStorage.getItem("mytodos") ? JSON.parse(localStorage.getItem("mytodos")) : [];
 }
 
 
